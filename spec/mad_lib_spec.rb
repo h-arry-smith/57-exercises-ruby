@@ -1,5 +1,5 @@
 require 'stringio'
-require_relative '../mad_lib.rb'
+require_relative '../mad_lib'
 
 RSpec.describe MadLibGenerator do
   it 'generates a default mad lib structure' do
