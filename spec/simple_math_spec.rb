@@ -26,6 +26,12 @@ RSpec.describe SimpleMath do
 
       expect { SimpleMath.gets_number('first') }.to output(expected).to_stdout
     end
+    it 'does not allow non number answers' do
+      allow_any_instance_of(Object).to receive(:gets).and_return('woeghuew')
+      expected = "What is the first number? \nYou must enter a number.\n"
+
+      expect { SimpleMath.gets_number('first') }.to output(expected).to_stdout
+    end
   end
 
   describe '#display_computation' do
@@ -63,6 +69,17 @@ EXPECTED
       expected = <<~EXPECTED
 What is the first number? 
 Negative numbers are not allowed.
+EXPECTED
+
+      expect { SimpleMath.compute_two_numbers }.to output(expected).to_stdout
+    end
+    
+    it 'bails if a non number is given' do
+      allow_any_instance_of(Object).to receive(:gets).and_return('weuihwi')
+
+      expected = <<~EXPECTED
+What is the first number? 
+You must enter a number.
 EXPECTED
 
       expect { SimpleMath.compute_two_numbers }.to output(expected).to_stdout

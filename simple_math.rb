@@ -2,10 +2,14 @@ module SimpleMath
   def self.gets_number(name = '')
     prompt_user name
 
-    value = gets.chomp.strip.to_i
+    user_input = gets.chomp.strip
+    value = user_input.to_i
 
     if value.negative?
       puts 'Negative numbers are not allowed.'
+      nil
+    elsif !is_integer?(user_input)
+      puts 'You must enter a number.'
       nil
     else
       value
@@ -52,5 +56,9 @@ OUTPUT
   end
   def self.mul(a, b)
     a * b
+  end
+
+  def self.is_integer?(string)
+    string.to_i.to_s == string
   end
 end
