@@ -5,7 +5,7 @@
 #   - Money as an object
 #   - Receipts
 #
-# Now my familiarity with the language has grown considerably, I will start to
+# Now my familiarity with the language has grown considerably, I will start to
 # this much better object oriented style and associated tests. This technique has
 # served the learning so far but now it is time to evolve.
 #
