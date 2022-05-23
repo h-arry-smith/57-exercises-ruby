@@ -4,5 +4,6 @@ source "https://rubygems.org"
 
 gem 'prettier'
 gem 'rspec'
+gem 'bcrypt'
 
 # gem "rails"
