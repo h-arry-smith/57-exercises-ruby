@@ -6,35 +6,35 @@ class Validator
   end
 
   def validate(data)
-    status = :ok
     validated_map = {
       data: {},
-      errors: {},
+      errors: {}
     }
 
     data.each_pair do |key, value|
-      validators = @map[key]
+      validators = [@map[key]].flatten
 
-      if validators.is_a? Array
-        (valid, data) = validate_all(value, validators)
-      else
-        (valid, data) = validators.validate(value)
-      end
+      (valid, data) = validate_all(value, validators)
 
       if valid == :ok
         validated_map[:data][key] = data
       else
-        data = [data] if !data.is_a? Array
-
         validated_map[:errors][key] = data
-        status = :error
       end
     end
 
-    [status, validated_map]
+    [status(validated_map), validated_map]
   end
 
   private
+
+  def status(map)
+    if map[:errors].empty?
+      :ok
+    else
+      :error
+    end
+  end
 
   def validate_all(value, validators)
     errors = []
@@ -42,9 +42,7 @@ class Validator
     validators.each do |rule|
       (valid, data) = rule.validate(value)
 
-      if valid == :error
-        errors << data
-      end
+      errors << data if valid == :error
     end
 
     if errors.empty?
