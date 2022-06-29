@@ -6,5 +6,6 @@ gem 'prettier'
 gem 'rspec'
 gem 'bcrypt'
 gem 'clipboard'
+gem 'sinatra'
 
 # gem "rails"

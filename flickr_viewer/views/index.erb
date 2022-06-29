@@ -1,0 +1,9 @@
+<h1>
+    Flickr Photo Viewer
+</h1>
+
+<div>
+    <% @photos.each do |photo| %>
+        <img src="<%= photo[:media][:m] %>" />
+    <% end %>
+</div>
