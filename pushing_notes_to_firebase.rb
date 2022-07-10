@@ -8,9 +8,8 @@
 #          - [x] delete notes
 #          - [x] tag notes
 # 3. [x] Implement FirebaseAPI object that upholds contract from testing (no tests?)
-# 4. [ ] Create CLI front end which interacts with notes backend (mocked out for tests)
-#          - [ ] new / show / delete / tag commands
-#          - [ ] show [tag]
+# 4. [x] Create CLI front end which interacts with notes backend (mocked out for tests)
+#          - [x] new / show / delete / tag commands
 require 'set'
 require 'google/cloud/firestore'
 
