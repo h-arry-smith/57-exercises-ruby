@@ -1,0 +1,26 @@
+<h1>
+    Short URL Service
+</h1>
+
+<form action="/new"  method="post">
+    <label>
+        <p>URL:</p>
+        <input type="text" name="long_url">
+    </label>
+
+    <input type="submit" value="submit">
+</form>
+
+<h2>
+    Last Ten Links
+</h2>
+
+<% @recent.each do |url| %>
+    <div>
+        <a href="http://localhost:4567/s/<%= url[:short_slug] %>">http://localhost:4567/s/<%= url[:short_slug] %></a>
+        |
+        <a href="<%= url[:long_url] %>"><%= url[:long_url] %></a>
+        |
+        <a href="http://localhost:4567/s/<%= url[:short_slug] %>/stats">Stats</a>
+    </div>
+<% end %>

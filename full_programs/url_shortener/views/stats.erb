@@ -1,0 +1,19 @@
+<h1>
+    URL Stats
+</h1>
+
+<p>
+    Created at: <%= @url[:created_at] %>
+</p>
+
+<p>
+    Original URL: <%= @url[:long_url] %>
+</p>
+
+<p>
+    Short URL: http://localhost:4567/s/<%= @url[:short_slug] %>
+</p>
+
+<p>
+    Visits: <%= @url[:opens] %>
+</p>
