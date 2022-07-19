@@ -1,0 +1,25 @@
+<h1>Text Sharing</h1>
+
+<div style="display: flex;">
+    <div style="width: 50%; padding: 1rem;">
+        <h2>Create a new paste</h2>
+
+        <form action="/new" method="post">
+            <textarea id="text" name="text" rows="25" style="width: 100%;"></textarea>
+
+            <div style="width: 100%; display: flex; justify-content: flex-end;">
+                <input type="submit" value="Save">
+            </div>
+        </form>
+    </div>
+
+    <div stye="width: 50%; padding: 1rem;">
+        <h2>Recent Posts</h2>
+
+        <ul>
+            <% @recent.each do |post| %>
+                <li><a href="<%= post.versioned_url %>"><%= post.slug %> | version: <%= post.version %></a> | <a href="<%= post.all_url %>">View All</a> </li>
+            <% end %>
+        </ul>
+    </div>
+</div>

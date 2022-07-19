@@ -1,0 +1,11 @@
+<h1>Text Sharing</h1>
+
+<h2>Viewing Post: <%= @post.slug %> | Version: <%= @post.version %></h2>
+
+<a href="<%= @post.all_url %>">Show All Versions</a>
+
+<a href="<%= @post.edit_url %>">Edit Most Recent</a>
+
+<p>
+    <%= @post.text %>
+</p>

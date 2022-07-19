@@ -1,0 +1,11 @@
+<h1>Text Sharing</h1>
+
+<h2>All Versions for <%= @slug %></h2>
+
+<a href="<%= @posts.first.edit_url %>">Edit Most Recent</a>
+
+<ul>
+    <% @posts.each do |post| %>
+        <li><a href="<%= post.versioned_url %>"><%= post.slug %> | version: <%= post.version %></a></li>
+    <% end %>
+</ul>

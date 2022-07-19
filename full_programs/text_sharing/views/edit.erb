@@ -1,0 +1,9 @@
+<h1>Text Sharing</h1>
+
+<h2>Editing Post: <%= @post.slug %></h2>
+
+<form action="/update" method="post" >
+    <textarea id="text" name="text" rows="25" cols="80" ><%= @post.text %></textarea>
+    <input type="hidden" id="slug" name="slug" value="<%= @post.slug %>" >
+    <input type="submit" value="Save" >
+</form>
