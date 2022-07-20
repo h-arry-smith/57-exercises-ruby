@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    </head>
+
+    <body>
+        <main>
+            <h1>
+                Your Inventory
+            </h1>
+
+            <table>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Serial Number</th>
+                    <th>Price</th>
+                    <th>Photo</th>
+                </tr>
+
+                <% @items.each do |item| %>
+                    <tr>
+                        <td><%= item.name %></td>
+                        <td><%= item.serial_no %></td>
+                        <td>£<%= item.price %></td>
+                        <% if item.photo_path %>
+                            <td><img src="<%= item.photo_path %>" /></td>
+                        <% else %>
+                            <td>-</td>
+                        <% end %>
+                    </tr>
+                <% end %>
+            </table>
+        </main>
+    </body>
+</html>
