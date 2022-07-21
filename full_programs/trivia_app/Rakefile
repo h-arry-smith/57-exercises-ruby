@@ -1,0 +1,24 @@
+require 'rom'
+require 'rom/sql/rake_task'
+
+require_relative 'seed'
+
+namespace :db do
+  task :setup do
+    ROM.container(:sql, 'sqlite://questions.db') do |conf|
+      conf.default.create_table(:questions) do
+        primary_key :id
+        column :question, String, null: false
+        column :answer, String, null: false
+        column :wrong_answer_one, String, null: false
+        column :wrong_answer_two, String, null: false
+        column :difficulty, Integer, null: false
+        column :category, String, null: false
+      end
+    end
+  end
+
+  task :seed do
+    seed
+  end
+end
